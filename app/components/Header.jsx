@@ -1,10 +1,18 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const [user, setUser] = useState(false);
   const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      if (sessionStorage.getItem("user")) {
+        setUser(true);
+      }
+    }
+  }, [user]);
   return (
     <header class="text-gray-400 bg-gray-900 body-font">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -25,7 +33,7 @@ const Header = () => {
             Contact Us
           </Link>
         </nav>
-        {!typeof window && sessionStorage.getItem("user")  ? (
+        {user ? (
           <button
             onClick={() => {
               sessionStorage.removeItem("user");
