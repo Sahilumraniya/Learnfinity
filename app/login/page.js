@@ -31,7 +31,7 @@ const page = () => {
       password,
     });
     if (data.user != null && data.session != null) {
-      toast.success('You are Login..', {
+      toast.success("You are Login..", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -40,21 +40,22 @@ const page = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
-      sessionStorage.setItem("user", JSON.stringify({ email }));
+      });
+      if (!typeof window) {
+        sessionStorage.setItem("user", JSON.stringify({ email }));
+      }
       router.push("/");
-
-    }else{
+    } else {
       toast.warn("Password or email is incorrect", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
     console.log(data);
     console.log(error);

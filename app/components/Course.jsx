@@ -25,7 +25,7 @@ const Course = () => {
     }
   };
   return (
-    <div id='course' className="w-full h-[25%] bg-gray-900 py-7">
+    <div id="course" className="w-full h-[25%] bg-gray-900 py-7">
       <div>
         <h4 className="text-center text-white text-4xl my-11">Course</h4>
       </div>
@@ -40,7 +40,9 @@ const Course = () => {
         <BiSearchAlt className="relative text-2xl -left-8 cursor-pointer" />
         <ul className="absolute bg-white rounded-md top-[44px] ">
           {results.map((item, i) =>
-            (sessionStorage.getItem("user") && item.course_type == "premium") ||
+            (sessionStorage.getItem("user") &&
+              item.course_type == "premium" &&
+              !typeof window) ||
             item.course_type == "free" ? (
               <Link href={`/course/${item.id}`}>
                 <li
@@ -90,7 +92,8 @@ const Course = () => {
                       <div class="flex items-center flex-wrap ">
                         <samp class="text-indigo-400 inline-flex items-center md:mb-2 lg:mb-0">
                           {(sessionStorage.getItem("user") &&
-                            c.course_type == "premium") ||
+                            c.course_type == "premium" &&
+                            !typeof window) ||
                           c.course_type == "free" ? (
                             <Link href={`/course/${c.id}`}>Learn More</Link>
                           ) : (
