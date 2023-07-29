@@ -25,7 +25,7 @@ const Header = () => {
             Contact Us
           </Link>
         </nav>
-        {sessionStorage.getItem("user") && !typeof window ? (
+        {!typeof window && sessionStorage.getItem("user")  ? (
           <button
             onClick={() => {
               sessionStorage.removeItem("user");
