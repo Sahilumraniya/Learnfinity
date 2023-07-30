@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../components/Header";
 
 const page = () => {
   const router = useRouter();
@@ -41,8 +42,8 @@ const page = () => {
         progress: undefined,
         theme: "dark",
       });
-      if (!typeof window) {
-        sessionStorage.setItem("user", JSON.stringify({ email }));
+      if (typeof window !== undefined) {
+        localStorage.setItem("user", JSON.stringify({ email }));
       }
       router.push("/");
     } else {
@@ -71,6 +72,8 @@ const page = () => {
     // });
   };
   return (
+    <>
+    <Header/>
     <div className="dark">
       <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -175,6 +178,7 @@ const page = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

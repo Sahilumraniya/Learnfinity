@@ -8,11 +8,11 @@ const Header = () => {
   const router = useRouter();
   useEffect(() => {
     if (typeof window !== undefined) {
-      if (sessionStorage.getItem("user")) {
-        setUser(true);
+      if (localStorage.getItem("user")) {
+        setUser(() => true);
       }
     }
-  }, [user]);
+  }, []);
   return (
     <header class="text-gray-400 bg-gray-900 body-font">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -36,7 +36,8 @@ const Header = () => {
         {user ? (
           <button
             onClick={() => {
-              sessionStorage.removeItem("user");
+              localStorage.removeItem("user");
+              setUser(() => false);
               router.refresh();
             }}
             class="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-800 rounded text-white text-base mt-4 md:mt-0"

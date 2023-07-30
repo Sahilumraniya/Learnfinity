@@ -1,11 +1,13 @@
 "use client";
 import supabase from "@/supabase";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const page = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,7 +32,7 @@ const page = () => {
         email,
         password,
       });
-      toast.success('Your acctount has been created', {
+      toast.success("Your acctount has been created", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -39,7 +41,8 @@ const page = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
+      });
+      router.push("/");
       console.log(data);
       console.log(error);
     } else {

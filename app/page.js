@@ -3,6 +3,7 @@ import Course from "./components/Course";
 import { ToastContainer } from "react-toastify";
 import Review from "./components/Review";
 import Statistic from "./components/Statistic";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         pauseOnHover
         theme="dark"
       />
+      <Header />
       <Hero />
       <Course />
       <Statistic/>

@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="https://img.icons8.com/color/48/learning.png" />
       </Head>
       <body className={inter.className}>
-        <Header />
         {children}
         <Footer />
       </body>
