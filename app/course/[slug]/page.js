@@ -1,3 +1,4 @@
+import Header from "@/app/components/Header";
 import { course } from "@/data/CourseData";
 import Image from "next/image";
 import React from "react";
@@ -11,6 +12,7 @@ const page = async ({ params }) => {
 
   return (
     <div>
+      <Header />
       <section class="text-gray-400 bg-gray-900 body-font">
         <div class="flex flex-col text-center w-full pt-[5%]">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
