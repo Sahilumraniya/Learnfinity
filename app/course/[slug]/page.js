@@ -40,7 +40,9 @@ const page = async ({ params }) => {
                       )}
                     </div>
                     <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
-                      <BiSolidVideos />
+                      <a href={link} target="_blank">
+                        <BiSolidVideos />
+                      </a>
                     </div>
                     <div class="flex-grow pl-4">
                       <h2 class="font-medium title-font text-sm text-white my-2 tracking-wider">
@@ -54,13 +56,19 @@ const page = async ({ params }) => {
                 );
               })}
             </div>
-            <Image
-              class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
-              src={data.image_link}
-              width={100}
-              height={100}
-              alt="step"
-            />
+            <a
+              class="lg:w-3/5 md:w-1/2 object-cover object-center md:mt-0 mt-12"
+              href={`${data.video_links[0]}`}
+              target="_blank"
+            >
+              <Image
+                class="w-full object-cover object-center rounded-lg"
+                src={data.image_link}
+                width={100}
+                height={100}
+                alt="step"
+              />
+            </a>
           </div>
         </div>
       </section>
