@@ -13,39 +13,39 @@ const page = async ({ params }) => {
   return (
     <div>
       <Header />
-      <section class="text-gray-400 bg-gray-900 body-font">
-        <div class="flex flex-col text-center w-full pt-[5%]">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
+      <section className="text-gray-400 bg-gray-900 body-font">
+        <div className="flex flex-col text-center w-full pt-[5%]">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
             {data.course_name}
           </h1>
-          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
             gentrify, subway tile poke farm-to-table. Franzen you probably
             haven't heard of them man bun deep jianbing selfies heirloom prism
             food truck ugh squid celiac humblebrag.
           </p>
         </div>
-        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div className="container px-5 py-24 mx-auto flex flex-wrap">
           <h1>Leature Links</h1>
-          <div class="flex flex-wrap w-full">
-            <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+          <div className="flex flex-wrap w-full">
+            <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
               {data.video_links.map((link, i) => {
                 return (
-                  <div class="flex relative pb-12">
-                    <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                  <div className="flex relative pb-12">
+                    <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                       {i != data.video_links.length - 1 ? (
-                        <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+                        <div className="h-full w-1 bg-gray-800 pointer-events-none"></div>
                       ) : (
                         <></>
                       )}
                     </div>
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
                       <a href={link} target="_blank">
                         <BiSolidVideos />
                       </a>
                     </div>
-                    <div class="flex-grow pl-4">
-                      <h2 class="font-medium title-font text-sm text-white my-2 tracking-wider">
+                    <div className="flex-grow pl-4">
+                      <h2 className="font-medium title-font text-sm text-white my-2 tracking-wider">
                         <a href={link} target="_blank">
                           {" "}
                           Leature {i + 1}{" "}
@@ -57,12 +57,12 @@ const page = async ({ params }) => {
               })}
             </div>
             <a
-              class="lg:w-3/5 md:w-1/2 object-cover object-center md:mt-0 mt-12"
+              className="lg:w-3/5 md:w-1/2 object-cover object-center md:mt-0 mt-12"
               href={`${data.video_links[0]}`}
               target="_blank"
             >
               <Image
-                class="w-full object-cover object-center rounded-lg"
+                className="w-full object-cover object-center rounded-lg"
                 src={data.image_link}
                 width={100}
                 height={100}
